@@ -6,6 +6,18 @@
     fill: lightgrey;
 }
 
+#start-button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 30px;
+}
+
+    #start-button > button {
+        font-size: 5rem;
+        padding: 0.75rem 3rem;
+    }
+
 #score-container {
     position: absolute;
     bottom: 0;
