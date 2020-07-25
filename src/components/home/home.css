@@ -1,0 +1,39 @@
+.home-container > svg {
+    height: 100vh;
+}
+
+.home-container > svg > .svg-map__location {
+    fill: lightgrey;
+}
+
+#score-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 30px;
+    padding: 15px;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+    #score-container > input {
+        margin-bottom: 10px;
+    }
+
+#trophy-icon {
+    font-size: 48px !important;
+    color: #ffc107;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 30px;
+}
+
+.modal-actions {
+    float: right;
+}
+
+#cancel {
+    margin-left: 10px;
+}
+
