@@ -38,3 +38,8 @@
 #submission-count {
     margin-top: 10px;
 }
+
+#attributes {
+    opacity: 0.3;
+    text-align: center;
+}
