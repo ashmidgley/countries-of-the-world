@@ -22,7 +22,8 @@ class Home extends React.Component {
             started: false,
             timer: '15:00',
             modalIsOpen: false,
-            submitting: false
+            submitting: false,
+            alreadyDone: false
         };
     }
 
@@ -40,6 +41,12 @@ class Home extends React.Component {
             if(self.state.finished)
                 clearInterval(countdown)
 
+            timer--;
+            if (timer < 0) {
+                self.finish();
+                clearInterval(countdown);
+            }
+
             minutes = parseInt(timer / 60, 10);
             seconds = parseInt(timer % 60, 10);
             minutes = minutes < 10 ? '0' + minutes : minutes;
@@ -48,12 +55,6 @@ class Home extends React.Component {
             self.setState({
                 timer: `${minutes}:${seconds}`
             });
-
-            timer--;
-            if (timer < 0) {
-                self.finish();
-                clearInterval(countdown);
-            }
         }, 1000);
     }
 
@@ -79,18 +80,20 @@ class Home extends React.Component {
 
         for (const [key, value] of Object.entries(this.state.countriesMap)) {
             if(!this.state.submissions.includes(value))
-                $(`[name="${value}"]`).css({ fill: "#dc3545" });
+                $(`[name="${value}"]`).css({ fill: "#f4bc44" });
         } 
     }
 
     handleChange = (event) => {
-        var submission = event.target.value.toLowerCase();
+        var submission = event.target.value.toLowerCase().trim();
         if(!this.state.countries.includes(submission))
             return;
 
         var name = this.state.countriesMap[submission];
-        if(name && this.state.submissions.includes(name))
+        if(name && this.state.submissions.includes(name)) {
+            this.flashAlreadyDone();
             return;
+        }
 
         $(`[name="${name}"]`).css({ fill: "#a1d99b" });
 
@@ -101,6 +104,19 @@ class Home extends React.Component {
         });
 
         event.target.value = "";
+    }
+
+    flashAlreadyDone = () => {
+        this.setState({
+            alreadyDone: true
+        });
+
+        let self = this;
+        setInterval(function() {
+            self.setState({
+                alreadyDone: false
+            });
+        }, 5000);
     }
 
     mouseOver = (event) => {
@@ -136,11 +152,17 @@ class Home extends React.Component {
     }
 
     getMinutes() {
+        if(this.state.timer === "15:00")
+            return 15;
+
         var minutes = parseInt(this.state.timer.substring(0, 2));
         return 14 - minutes;
     }
 
     getSeconds() {
+        if(this.state.timer === "15:00")
+            return 0;
+
         var seconds = parseInt(this.state.timer.substring(3));
         return 60 - seconds;
     }
@@ -148,6 +170,12 @@ class Home extends React.Component {
     render() {
         return (
             <div className="home-container">
+                <Link to="/">
+                    <ion-icon id="home-icon" name="home-outline"></ion-icon>
+                </Link>
+                <Link to='/leaderboard'>
+                    <ion-icon id="trophy-icon" name="trophy-outline"></ion-icon>
+                </Link>
                 <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles}>
                     <form onSubmit={this.handleSubmit}>
                         <div>
@@ -180,24 +208,27 @@ class Home extends React.Component {
                         </div>
                     </form>
                 </Modal>
-                <Link to='/leaderboard'>
-                    <ion-icon id="trophy-icon" name="trophy-outline"></ion-icon>
-                </Link>
                 <SVGMap
                     map={World}
                     onLocationMouseOver={this.mouseOver}
                     onLocationMouseOut={this.mouseOut}
                 />
                 <div id="score-container">
+                    {
+                        this.state.alreadyDone && 
+                        <div id="submission-validation">
+                            Already done! :/
+                        </div>
+                    }
                     <input 
-                        className="form-control" 
+                        className={this.state.alreadyDone ? "form-control invalid-field" : "form-control"} 
                         type="text" 
                         placeholder="Enter country..."
                         onChange={this.handleChange}
                         disabled={!this.state.started || this.state.finished}
                         autoFocus
                     />
-                    <p className="card-text text-center">
+                    <p id="submission-count" className="card-text text-center">
                         {this.state.submissions.length} of {this.state.countries.length}
                     </p>
                     <h1 className="text-center">{this.state.timer}</h1>

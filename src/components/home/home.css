@@ -20,15 +20,6 @@
         margin-bottom: 10px;
     }
 
-#trophy-icon {
-    font-size: 48px !important;
-    color: #ffc107;
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 30px;
-}
-
 .modal-actions {
     float: right;
 }
@@ -37,3 +28,13 @@
     margin-left: 10px;
 }
 
+#submission-validation {
+    font-size: 80%;
+    color: #dc3545;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+#submission-count {
+    margin-top: 10px;
+}
