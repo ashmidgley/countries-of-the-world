@@ -47,7 +47,7 @@ class Leaderboard extends React.Component {
                                         <td>{this.state.entries.indexOf(entry)+1}</td>
                                         <td>{entry.name}</td>
                                         <td>
-                                            <img id="flag" src={`/flags/${this.state.codeMap[entry.country]}.svg`} />
+                                            <img id="flag" src={`/flags/${this.state.codeMap[entry.country]}.svg`} alt="Country flag"/>
                                         </td>
                                         <td>{entry.countries}</td>
                                         <td>{entry.time}</td>
