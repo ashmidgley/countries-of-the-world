@@ -26,8 +26,10 @@ class Home extends React.Component {
             modalIsOpen: false,
             submitting: false,
             alreadyDone: false,
-            name: null,
-            country: null,
+            name: '',
+            nameInvalid: false,
+            country: '',
+            countryInvalid: false,
             tooltipText: null,
             tooltipStyle: { "display": "none" }
         };
@@ -68,7 +70,11 @@ class Home extends React.Component {
         this.setState({
             finished: false,
             submissions: [],
-            timer: '15:00'
+            timer: '15:00',
+            name: '',
+            country: '',
+            nameInvalid: false,
+            countryInvalid: false
         });
 
         for (const [key, value] of Object.entries(this.state.countriesMap)) {
@@ -80,20 +86,14 @@ class Home extends React.Component {
 
     finish = () => {
         this.setState({
-            finished: true
+            finished: true,
+            modalIsOpen: true
         });
 
         for (const [key, value] of Object.entries(this.state.countriesMap)) {
             if(!this.state.submissions.includes(value))
                 $(`[name="${value}"]`).css({ fill: "#f4bc44" });
         } 
-        
-        let self = this;
-        setTimeout(function() {
-            self.setState({
-                modalIsOpen: true
-            });
-        }, 1000);
     }
 
     handleChange = (event) => {
@@ -128,16 +128,22 @@ class Home extends React.Component {
             self.setState({
                 alreadyDone: false
             });
-        }, 3000);
+        }, 2000);
     }
 
     mouseOver = (event) => {
+        if(!this.state.finished)
+            return;
+
         this.setState({
             tooltipText: event.target.getAttribute('name')
         });
     }
 
     mouseMove = (event) => {
+        if(!this.state.finished)
+            return;
+
         var style = {
             "display": "block",
             "top": event.clientY + 10,
@@ -150,6 +156,9 @@ class Home extends React.Component {
     }
 
     mouseOut = (event) => {
+        if(!this.state.finished)
+            return;
+
         this.setState({
             tooltipText: null,
             tooltipStyle: { "display": "none" }
@@ -170,10 +179,24 @@ class Home extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-
         this.setState({
-            submitting: true
+            submitting: true,
+            nameInvalid: false,
+            countryInvalid: false
         });
+
+        if(this.state.name === '' || this.state.country === '') {
+            var nameInvalid = this.state.name === '';
+            var countryInvalid = this.state.country === '';
+
+            this.setState({
+                countryInvalid: countryInvalid,
+                nameInvalid: nameInvalid,
+                submitting: false
+            });
+
+            return;
+        }
 
         var data = {
             name: this.state.name,
@@ -188,8 +211,8 @@ class Home extends React.Component {
         this.setState({
             modalIsOpen: false,
             submitting: false,
-            name: null,
-            country: null
+            name: '',
+            country: ''
         });
     }
 
@@ -247,25 +270,38 @@ class Home extends React.Component {
                         <div className="form-group">
                             <label>Name</label>
                             <input
-                                className="form-control"
+                                className={this.state.nameInvalid ? "form-control is-invalid" : "form-control"}
                                 type="text"
                                 value={this.state.name}
                                 onChange={this.handleNameChange}
                                 placeholder="Enter name..."
                             />
+                            {
+                                this.state.nameInvalid &&
+                                <div className="invalid-feedback">
+                                    Name is required. 
+                                </div>
+                            }
                         </div>
                         <div className="form-group">
                             <label>Country</label>
                             <select
-                                className="form-control"
+                                className={this.state.countryInvalid ? "form-control is-invalid" : "form-control"}
                                 value={this.state.country}
                                 onChange={this.handleCountryChange}>
+                                    <option value="" disabled selected>Select country...</option>
                                     {
                                         Object.entries(this.state.codeMap).map(([key, value]) =>
-                                            <option>{key}</option>
+                                            <option key={key}>{key}</option>
                                         )
                                     }
                             </select>
+                            {
+                                this.state.countryInvalid &&
+                                <div className="invalid-feedback">
+                                    Country is required. 
+                                </div>
+                            }
                         </div>
                         <hr />
                         <div className="modal-actions">
