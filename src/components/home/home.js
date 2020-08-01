@@ -74,14 +74,20 @@ class Home extends React.Component {
 
     finish = () => {
         this.setState({
-            finished: true,
-            modalIsOpen: true
+            finished: true
         });
 
         for (const [key, value] of Object.entries(this.state.countriesMap)) {
             if(!this.state.submissions.includes(value))
                 $(`[name="${value}"]`).css({ fill: "#f4bc44" });
         } 
+        
+        let self = this;
+        setTimeout(function() {
+            self.setState({
+                modalIsOpen: true
+            });
+        }, 1000);
     }
 
     handleChange = (event) => {
@@ -116,7 +122,7 @@ class Home extends React.Component {
             self.setState({
                 alreadyDone: false
             });
-        }, 5000);
+        }, 3000);
     }
 
     mouseOver = (event) => {
@@ -151,20 +157,32 @@ class Home extends React.Component {
         });
     }
 
-    getMinutes() {
-        if(this.state.timer === "15:00")
-            return 15;
+    getTimeString() {
+        var minutes = 14 - parseInt(this.state.timer.substring(0, 2));
+        var seconds = 60 - parseInt(this.state.timer.substring(3));
 
-        var minutes = parseInt(this.state.timer.substring(0, 2));
-        return 14 - minutes;
-    }
+        if(minutes === 0 && seconds === 1)
+            return '1 second';
 
-    getSeconds() {
-        if(this.state.timer === "15:00")
-            return 0;
+        if(minutes === 0)
+            return `${seconds} seconds`; 
 
-        var seconds = parseInt(this.state.timer.substring(3));
-        return 60 - seconds;
+        if(minutes === 1 && seconds === 0)
+            return `1 minute`;
+
+        if(minutes === 1 && seconds === 1)
+            return `1 minute and 1 second`;
+
+        if(minutes === 1)
+            return `1 minute and ${seconds} seconds`;
+
+        if(seconds === 0)
+            return `${minutes} minutes`;
+
+        if(seconds === 1)
+            return `${minutes} minutes and 1 second`;
+
+        return `${minutes} minutes and ${seconds} seconds`;
     }
 
     render() {
@@ -179,7 +197,7 @@ class Home extends React.Component {
                 <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles}>
                     <form onSubmit={this.handleSubmit}>
                         <div>
-                            <p>Congratulations! You completed {this.state.submissions.length} countries in {this.getMinutes()} minutes and {this.getSeconds()} seconds.</p>
+                            <p>Congratulations! You completed {this.state.submissions.length} countries in {this.getTimeString()}.</p>
                             <p>Complete the below form to add your score to the leaderboard.</p>
                         </div>
                         <div className="form-group">
