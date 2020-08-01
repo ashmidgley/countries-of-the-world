@@ -27,7 +27,9 @@ class Home extends React.Component {
             submitting: false,
             alreadyDone: false,
             name: null,
-            country: null
+            country: null,
+            tooltipText: null,
+            tooltipStyle: { "display": "none" }
         };
     }
 
@@ -130,11 +132,28 @@ class Home extends React.Component {
     }
 
     mouseOver = (event) => {
-        console.log(event.target.getAttribute('name'));
+        this.setState({
+            tooltipText: event.target.getAttribute('name')
+        });
+    }
+
+    mouseMove = (event) => {
+        var style = {
+            "display": "block",
+            "top": event.clientY + 10,
+            "left": event.clientX - 100
+        };
+
+        this.setState({
+            tooltipStyle: style
+        });
     }
 
     mouseOut = (event) => {
-        console.log(event.target.getAttribute('name'));
+        this.setState({
+            tooltipText: null,
+            tooltipStyle: { "display": "none" }
+        });
     }
 
     handleNameChange = (event) => {
@@ -269,8 +288,12 @@ class Home extends React.Component {
                 <SVGMap
                     map={World}
                     onLocationMouseOver={this.mouseOver}
+                    onLocationMouseMove={this.mouseMove}
                     onLocationMouseOut={this.mouseOut}
                 />
+                <div id="map_tooltip" style={this.state.tooltipStyle}>
+                    {this.state.tooltipText}
+                </div>
                 <div id="score-container">
                     {
                         this.state.alreadyDone && 
