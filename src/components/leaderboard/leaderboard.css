@@ -3,3 +3,8 @@
     margin-bottom: 30px;
 }
 
+#flag {
+    max-width: 50px;
+    border-radius: 3px;
+    border: lightgray 1px solid;
+}
