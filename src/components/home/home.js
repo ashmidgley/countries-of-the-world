@@ -31,7 +31,8 @@ class Home extends React.Component {
             country: '',
             countryInvalid: false,
             tooltipText: null,
-            tooltipStyle: { "display": "none" }
+            tooltipStyle: { "display": "none" },
+            trophyStyle: {}
         };
     }
 
@@ -214,6 +215,19 @@ class Home extends React.Component {
             name: '',
             country: ''
         });
+
+        let self = this;
+        setTimeout(function() {
+            self.setState({
+                trophyStyle: { "animation": "spin 1.5s" }
+            });
+        }, 500);
+
+        setTimeout(function() {
+            self.setState({
+                trophyStyle: {}
+            });
+        }, 1500);
     }
 
     closeModal = (e) => {
@@ -259,7 +273,11 @@ class Home extends React.Component {
                     <ion-icon id="home-icon" name="home-outline"></ion-icon>
                 </Link>
                 <Link to='/leaderboard'>
-                    <ion-icon id="trophy-icon" name="trophy-outline"></ion-icon>
+                    <ion-icon
+                        id="trophy-icon"
+                        name="trophy-outline"
+                        style={this.state.trophyStyle}>
+                    </ion-icon>
                 </Link>
                 <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles}>
                     <form onSubmit={this.handleSubmit}>
