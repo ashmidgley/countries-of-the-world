@@ -206,28 +206,40 @@ class Home extends React.Component {
             time: this.state.timer
         };
 
-        // TODO: Call API.
-        console.log(data);
+        fetch(`${process.env.REACT_APP_API_URL}/leaderboard`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            this.setState({
+                modalIsOpen: false,
+                submitting: false,
+                name: '',
+                country: ''
+            });
 
-        this.setState({
-            modalIsOpen: false,
-            submitting: false,
-            name: '',
-            country: ''
+            let self = this;
+            setTimeout(function() {
+                self.setState({
+                    trophyStyle: { "animation": "spin 1.5s" }
+                });
+            }, 500);
+
+            setTimeout(function() {
+                self.setState({
+                    trophyStyle: {}
+                });
+            }, 1500);
+        })
+        .catch(error => {
+            console.error(error);
         });
 
-        let self = this;
-        setTimeout(function() {
-            self.setState({
-                trophyStyle: { "animation": "spin 1.5s" }
-            });
-        }, 500);
-
-        setTimeout(function() {
-            self.setState({
-                trophyStyle: {}
-            });
-        }, 1500);
     }
 
     closeModal = (e) => {
@@ -307,7 +319,7 @@ class Home extends React.Component {
                                 className={this.state.countryInvalid ? "form-control is-invalid" : "form-control"}
                                 value={this.state.country}
                                 onChange={this.handleCountryChange}>
-                                    <option value="" disabled selected>Select country...</option>
+                                    <option value="" disabled defaultValue>Select country...</option>
                                     {
                                         Object.entries(this.state.codeMap).map(([key, value]) =>
                                             <option key={key}>{key}</option>
