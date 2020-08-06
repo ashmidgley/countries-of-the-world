@@ -250,13 +250,13 @@ class Home extends React.Component {
                 self.setState({
                     trophyStyle: { "animation": "spin 1.5s" }
                 });
-            }, 500);
 
-            setTimeout(function() {
-                self.setState({
-                    trophyStyle: {}
-                });
-            }, 1500);
+                setTimeout(function() {
+                    self.setState({
+                        trophyStyle: {}
+                    });
+                }, 1500);
+            }, 500);
         })
         .catch(error => {
             console.error(error);
