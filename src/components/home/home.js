@@ -4,6 +4,7 @@ import 'react-svg-map/lib/index.css';
 import $ from 'jquery';
 import World from "@svg-maps/world";
 import Modal from 'react-modal';
+import Spinner from '../spinner/spinner';
 import { SVGMap } from "react-svg-map";
 import { Link } from 'react-router-dom';
 import { customStyles } from '../../helpers/custom-modal';
@@ -303,7 +304,7 @@ class Home extends React.Component {
     render() {
         if(this.state.loading) {
             return (
-                <p>Loading...</p>
+                <Spinner></Spinner>
             );
         }
 

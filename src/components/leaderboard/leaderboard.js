@@ -1,6 +1,7 @@
 import React from 'react';
 import './leaderboard.css';
 import { Link } from 'react-router-dom';
+import Spinner from '../spinner/spinner';
 
 class Leaderboard extends React.Component {
     
@@ -42,7 +43,7 @@ class Leaderboard extends React.Component {
     render() {
         if(this.state.loading) {
             return (
-                <p>Loading...</p>
+                <Spinner></Spinner>
             );
         }
 
