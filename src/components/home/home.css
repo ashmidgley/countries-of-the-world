@@ -1,0 +1,68 @@
+.home-container > svg {
+    height: 100vh;
+}
+
+.home-container > svg > .svg-map__location {
+    fill: lightgrey;
+}
+
+#score-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 30px;
+    padding: 15px;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+    #score-container > input {
+        margin-bottom: 10px;
+    }
+
+.modal-actions {
+    float: right;
+}
+
+#cancel {
+    margin-left: 10px;
+}
+
+#submission-validation {
+    font-size: 80%;
+    color: #dc3545;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+#submission-count {
+    margin-top: 10px;
+}
+
+#attributes {
+    opacity: 0.3;
+    text-align: center;
+}
+
+#map_tooltip {
+    position: fixed;
+    width: 200px;
+    padding: 10px;
+    border: 1px solid darkgray;
+    background-color: white;
+    text-align: center;
+    border-radius: 3px;
+}
+
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}

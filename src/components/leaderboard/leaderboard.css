@@ -1,0 +1,10 @@
+.leaderboard-container h1 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#flag {
+    max-width: 35px;
+    border-radius: 3px;
+    border: lightgray 1px solid;
+}
