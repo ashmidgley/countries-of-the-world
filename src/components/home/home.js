@@ -15,6 +15,7 @@ class Home extends React.Component {
         super(props);
         this.state = {
             countries: null,
+            alternativeNamings: null,
             countriesMap: null, 
             submissions: [],
             started: false,
@@ -42,6 +43,14 @@ class Home extends React.Component {
                 });
             });
 
+        fetch(`${process.env.REACT_APP_API_URL}/countries/alternatives`)
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    alternativeNamings: data
+                });
+            });
+        
         fetch(`${process.env.REACT_APP_API_URL}/countries/map`)
             .then(response => response.json())
             .then(data => {
@@ -52,11 +61,12 @@ class Home extends React.Component {
     }
 
     componentDidUpdate() {
-       if(this.state.loading && this.state.countries && this.state.countriesMap) {
+        if(this.state.loading && this.state.countries
+            && this.state.alternativeNamings && this.state.countriesMap) {
             this.setState({
                 loading: false
             });
-       }
+        }
     }
 
     startTimer = () => {
@@ -122,7 +132,8 @@ class Home extends React.Component {
 
     handleChange = (event) => {
         var submission = event.target.value.toLowerCase().trim();
-        if(!this.state.countries.includes(submission))
+        if(!this.state.countries.includes(submission) &&
+            !this.state.alternativeNamings.includes(submission))
             return;
 
         var name = this.state.countriesMap[submission];
