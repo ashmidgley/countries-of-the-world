@@ -1,0 +1,17 @@
+#home-icon {
+    font-size: 48px !important;
+    color: #17a2b8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 30px;
+}
+
+#trophy-icon {
+    font-size: 48px !important;
+    color: #17a2b8;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 30px;
+}

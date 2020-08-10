@@ -5,8 +5,8 @@ import $ from 'jquery';
 import World from "@svg-maps/world";
 import Modal from 'react-modal';
 import Spinner from '../spinner/spinner';
+import Navigation from '../navigation/navigation';
 import { SVGMap } from "react-svg-map";
-import { Link } from 'react-router-dom';
 import { customStyles } from '../../helpers/custom-modal';
 
 class Home extends React.Component {
@@ -249,7 +249,6 @@ class Home extends React.Component {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             this.setState({
                 modalIsOpen: false,
                 submitting: false,
@@ -321,16 +320,7 @@ class Home extends React.Component {
 
         return (
             <div className="home-container">
-                <Link to="/">
-                    <ion-icon id="home-icon" name="home-outline"></ion-icon>
-                </Link>
-                <Link to='/leaderboard'>
-                    <ion-icon
-                        id="trophy-icon"
-                        name="trophy-outline"
-                        style={this.state.trophyStyle}>
-                    </ion-icon>
-                </Link>
+                <Navigation trophyStyle={this.state.trophyStyle}></Navigation>
                 <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles}>
                     <form onSubmit={this.handleSubmit}>
                         <div>

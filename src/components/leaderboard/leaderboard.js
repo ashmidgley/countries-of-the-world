@@ -1,7 +1,7 @@
 import React from 'react';
 import './leaderboard.css';
-import { Link } from 'react-router-dom';
 import Spinner from '../spinner/spinner';
+import Navigation from '../navigation/navigation';
 
 class Leaderboard extends React.Component {
     
@@ -49,12 +49,7 @@ class Leaderboard extends React.Component {
 
         return(
             <div className="leaderboard-container">
-                <Link to="/">
-                    <ion-icon id="home-icon" name="home-outline"></ion-icon>
-                </Link>
-                <Link to='/leaderboard'>
-                    <ion-icon id="trophy-icon" name="trophy-outline"></ion-icon>
-                </Link>
+                <Navigation></Navigation>
                 <div className="row justify-content-md-center">
                     <div className="col-md-6">
                         <div className="text-center">
