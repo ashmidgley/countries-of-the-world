@@ -55,8 +55,8 @@ class Leaderboard extends React.Component {
                         <div className="text-center">
                             <h1>Leaderboard</h1>
                         </div>
-                        <table className="table">
-                            <thead>
+                        <table className="table table-hover">
+                            <thead className="thead-dark">
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
