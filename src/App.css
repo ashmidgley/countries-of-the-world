@@ -1,3 +1,7 @@
+#app-container {
+    min-height: 100vh;
+}
+
 #home-icon {
     font-size: 48px !important;
     color: #17a2b8;

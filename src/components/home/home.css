@@ -39,11 +39,6 @@
     margin-top: 10px;
 }
 
-#attributes {
-    opacity: 0.3;
-    text-align: center;
-}
-
 #map_tooltip {
     position: fixed;
     width: 200px;
