@@ -3,11 +3,10 @@ import './home.css';
 import 'react-svg-map/lib/index.css';
 import $ from 'jquery';
 import World from "@svg-maps/world";
-import Modal from 'react-modal';
 import Spinner from '../spinner/spinner';
 import Navigation from '../navigation/navigation';
+import CompletedModal from '../completed-modal/completed-modal';
 import { SVGMap } from "react-svg-map";
-import { customStyles } from '../../helpers/custom-modal';
 
 class Home extends React.Component {
 
@@ -283,33 +282,7 @@ class Home extends React.Component {
         });
     }
 
-    getTimeString() {
-        var minutes = 14 - parseInt(this.state.timer.substring(0, 2));
-        var seconds = 60 - parseInt(this.state.timer.substring(3));
 
-        if(minutes === 0 && seconds === 1)
-            return '1 second';
-
-        if(minutes === 0)
-            return `${seconds} seconds`; 
-
-        if(minutes === 1 && seconds === 0)
-            return `1 minute`;
-
-        if(minutes === 1 && seconds === 1)
-            return `1 minute and 1 second`;
-
-        if(minutes === 1)
-            return `1 minute and ${seconds} seconds`;
-
-        if(seconds === 0)
-            return `${minutes} minutes`;
-
-        if(seconds === 1)
-            return `${minutes} minutes and 1 second`;
-
-        return `${minutes} minutes and ${seconds} seconds`;
-    }
 
     render() {
         if(this.state.loading) {
@@ -321,66 +294,21 @@ class Home extends React.Component {
         return (
             <div className="home-container">
                 <Navigation trophyStyle={this.state.trophyStyle}></Navigation>
-                <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles}>
-                    <form onSubmit={this.handleSubmit}>
-                        <div>
-                            <p>Congratulations! You completed {this.state.submissions.length} countries in {this.getTimeString()}.</p>
-                            <p>Complete the below form to add your score to the leaderboard.</p>
-                        </div>
-                        <div className="form-group">
-                            <label>Name</label>
-                            <input
-                                className={this.state.nameInvalid ? "form-control is-invalid" : "form-control"}
-                                type="text"
-                                value={this.state.name}
-                                onChange={this.handleNameChange}
-                                placeholder="Enter name..."
-                            />
-                            {
-                                this.state.nameInvalid &&
-                                <div className="invalid-feedback">
-                                    Name is required. 
-                                </div>
-                            }
-                        </div>
-                        <div className="form-group">
-                            <label>Country</label>
-                            <select
-                                className={this.state.countryInvalid ? "form-control is-invalid" : "form-control"}
-                                value={this.state.country}
-                                onChange={this.handleCountryChange}>
-                                    <option value="" disabled defaultValue>Select country...</option>
-                                    {
-                                        Object.entries(this.state.countriesMap).map(([key, value]) =>
-                                            <option key={key}>{value}</option>
-                                        )
-                                    }
-                            </select>
-                            {
-                                this.state.countryInvalid &&
-                                <div className="invalid-feedback">
-                                    Country is required. 
-                                </div>
-                            }
-                        </div>
-                        <hr />
-                        <div className="modal-actions">
-                            {
-                                this.state.submitting ?
-                                <button className="btn btn-success" disabled>
-                                    <span className="spinner-border spinner-border-sm"></span>
-                                </button>
-                                :
-                                <button className="btn btn-success" type="submit">
-                                    Submit
-                                </button>
-                            }
-                            <button id="cancel" className="btn btn-light" onClick={this.closeModal}>
-                                Cancel
-                            </button>
-                        </div>
-                    </form>
-                </Modal>
+                <CompletedModal
+                    modalIsOpen={this.state.modalIsOpen}
+                    closeModal={this.closeModal}
+                    handleSubmit={this.handleSubmit}
+                    submissions={this.state.submissions.length}
+                    countries={this.state.countriesMap}
+                    time={this.state.timer}
+                    submitting={this.state.submitting}
+                    name={this.state.name}
+                    nameInvalid={this.state.nameInvalid}
+                    country={this.state.country}
+                    countryInvalid={this.state.countryInvalid}
+                    handleNameChange={this.handleNameChange}
+                    handleCountryChange={this.handleCountryChange}>
+                </CompletedModal>
                 <SVGMap
                     map={World}
                     onLocationMouseOver={this.mouseOver}
