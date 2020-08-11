@@ -20,7 +20,10 @@ class Home extends React.Component {
             dropdownOptions: null,
             submissions: [],
             started: false,
-            timer: '15:00',
+            stopWatch: 0,
+            max: 15 * 60,
+            clockString: "15:00",
+            expiredTime: "00:00",
             modalIsOpen: false,
             submitting: false,
             alreadyDone: false,
@@ -77,29 +80,39 @@ class Home extends React.Component {
         });
 
         let self = this;
-        var timer = 15 * 60;
-        var minutes = 15;
-        var seconds = 0;
-
         var countdown = setInterval(function () {
-            if(self.state.finished)
+            if(self.state.finished) {
                 clearInterval(countdown)
+                return;
+            }
 
-            timer--;
-            if (timer < 0) {
+            var temp = self.state.stopWatch + 1;
+            var expiredTime = self.getExpiredTimeString(temp); 
+            var clockString = self.getClockString(temp);
+            self.setState({
+                stopWatch: temp,
+                expiredTime: expiredTime,
+                clockString: clockString
+            });
+
+            if (self.state.stopWatch >= self.state.max) {
                 self.finish();
                 clearInterval(countdown);
             }
-
-            minutes = parseInt(timer / 60, 10);
-            seconds = parseInt(timer % 60, 10);
-            minutes = minutes < 10 ? '0' + minutes : minutes;
-            seconds = seconds < 10 ? '0' + seconds : seconds;
-
-            self.setState({
-                timer: `${minutes}:${seconds}`
-            });
         }, 1000);
+    }
+
+    getExpiredTimeString = (expired) => {
+        var minutes = Math.floor(expired / 60);
+        var seconds = expired % 60;
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        return `${minutes}:${seconds}`;
+    }
+
+    getClockString(expired) {
+      var clock = this.state.max - expired;
+      return this.getExpiredTimeString(clock);
     }
   
     finish = () => {
@@ -118,7 +131,9 @@ class Home extends React.Component {
         this.setState({
             finished: false,
             submissions: [],
-            timer: '15:00',
+            stopWatch: 0,
+            clockString: '15:00',
+            expiredTime: '00:00',
             name: '',
             country: '',
             nameInvalid: false,
@@ -239,7 +254,7 @@ class Home extends React.Component {
             name: this.state.name,
             country: this.state.country,
             countries: this.state.submissions.length,
-            time: this.state.timer
+            time: this.state.expiredTime
         };
 
         fetch(`${process.env.REACT_APP_API_URL}/leaderboard`, {
@@ -296,7 +311,7 @@ class Home extends React.Component {
                     modalIsOpen={this.state.modalIsOpen}
                     submissions={this.state.submissions.length}
                     countries={this.state.dropdownOptions}
-                    time={this.state.timer}
+                    time={this.state.expiredTime}
                     submitting={this.state.submitting}
                     name={this.state.name}
                     nameInvalid={this.state.nameInvalid}
@@ -323,7 +338,7 @@ class Home extends React.Component {
                     alreadyDone={this.state.alreadyDone}
                     started={this.state.started}
                     finished={this.state.finished}
-                    timer={this.state.timer}
+                    timer={this.state.clockString}
                     startTimer={this.startTimer}
                     handleSubmission={this.handleSubmission}
                     finish={this.finish}
