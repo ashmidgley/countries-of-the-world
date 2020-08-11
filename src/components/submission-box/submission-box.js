@@ -16,7 +16,7 @@ class SubmissionBox extends React.Component {
                     className={this.props.alreadyDone ? "form-control invalid-field" : "form-control"} 
                     type="text" 
                     placeholder="Enter country..."
-                    onChange={this.props.handleChange}
+                    onChange={this.props.handleSubmission}
                     disabled={!this.props.started || this.props.finished}
                     autoFocus
                 />

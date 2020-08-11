@@ -100,6 +100,18 @@ class Home extends React.Component {
             });
         }, 1000);
     }
+  
+    finish = () => {
+        this.setState({
+            finished: true,
+            modalIsOpen: true
+        });
+
+        for (const [key, value] of Object.entries(this.state.countriesMap)) {
+            if(!this.state.submissions.includes(value))
+                $(`[name="${value}"]`).css({ fill: "#f4bc44" });
+        } 
+    }
 
     retry = () => {
         this.setState({
@@ -119,19 +131,7 @@ class Home extends React.Component {
         this.startTimer(); 
     }
 
-    finish = () => {
-        this.setState({
-            finished: true,
-            modalIsOpen: true
-        });
-
-        for (const [key, value] of Object.entries(this.state.countriesMap)) {
-            if(!this.state.submissions.includes(value))
-                $(`[name="${value}"]`).css({ fill: "#f4bc44" });
-        } 
-    }
-
-    handleChange = (event) => {
+    handleSubmission = (event) => {
         var submission = event.target.value.toLowerCase().trim();
         if(!this.state.countries.includes(submission) &&
             !this.state.alternativeNamings.includes(submission))
@@ -213,7 +213,7 @@ class Home extends React.Component {
         });
     }
 
-    handleSubmit = (e) => {
+    handleModalSubmit = (e) => {
         e.preventDefault();
         this.setState({
             submitting: true,
@@ -284,8 +284,6 @@ class Home extends React.Component {
         });
     }
 
-
-
     render() {
         if(this.state.loading) {
             return (
@@ -298,8 +296,6 @@ class Home extends React.Component {
                 <Navigation trophyStyle={this.state.trophyStyle}></Navigation>
                 <CompletedModal
                     modalIsOpen={this.state.modalIsOpen}
-                    closeModal={this.closeModal}
-                    handleSubmit={this.handleSubmit}
                     submissions={this.state.submissions.length}
                     countries={this.state.countriesMap}
                     time={this.state.timer}
@@ -309,7 +305,9 @@ class Home extends React.Component {
                     country={this.state.country}
                     countryInvalid={this.state.countryInvalid}
                     handleNameChange={this.handleNameChange}
-                    handleCountryChange={this.handleCountryChange}>
+                    handleCountryChange={this.handleCountryChange}
+                    handleSubmit={this.handleModalSubmit}
+                    closeModal={this.closeModal}>
                 </CompletedModal>
                 <SVGMap
                     map={World}
@@ -325,13 +323,13 @@ class Home extends React.Component {
                     submissions={this.state.submissions}
                     countries={this.state.countries}
                     alreadyDone={this.state.alreadyDone}
-                    handleChange={this.handleChange}
                     started={this.state.started}
                     finished={this.state.finished}
+                    timer={this.state.timer}
                     startTimer={this.startTimer}
+                    handleSubmission={this.handleSubmission}
                     finish={this.finish}
-                    retry={this.retry}
-                    timer={this.state.timer}>
+                    retry={this.retry}>
                 </SubmissionBox>
             </div>
         );
