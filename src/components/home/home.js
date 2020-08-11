@@ -6,6 +6,8 @@ import World from "@svg-maps/world";
 import Spinner from '../spinner/spinner';
 import Navigation from '../navigation/navigation';
 import CompletedModal from '../completed-modal/completed-modal';
+import SubmissionBox from '../submission-box/submission-box';
+import Tooltip from '../tooltip/tooltip';
 import { SVGMap } from "react-svg-map";
 
 class Home extends React.Component {
@@ -315,47 +317,22 @@ class Home extends React.Component {
                     onLocationMouseMove={this.mouseMove}
                     onLocationMouseOut={this.mouseOut}
                 />
-                <div id="map_tooltip" style={this.state.tooltipStyle}>
-                    {this.state.tooltipText}
-                </div>
-                <div id="score-container">
-                    {
-                        this.state.alreadyDone && 
-                        <div id="submission-validation">
-                            Already done! :/
-                        </div>
-                    }
-                    <input 
-                        className={this.state.alreadyDone ? "form-control invalid-field" : "form-control"} 
-                        type="text" 
-                        placeholder="Enter country..."
-                        onChange={this.handleChange}
-                        disabled={!this.state.started || this.state.finished}
-                        autoFocus
-                    />
-                    <p id="submission-count" className="card-text text-center">
-                        {this.state.submissions.length} of {this.state.countries.length}
-                    </p>
-                    <h1 className="text-center">{this.state.timer}</h1>
-                    {
-                        !this.state.started && !this.state.finished &&
-                        <div className="text-center">
-                            <button className="btn btn-success" onClick={this.startTimer}>Start</button>
-                        </div>
-                    }
-                    {
-                        this.state.started && !this.state.finished &&
-                        <div className="text-center">
-                            <button className="btn btn-warning" onClick={this.finish}>Give Up</button>
-                        </div>
-                    }
-                    {
-                        this.state.finished &&
-                        <div className="text-center">
-                            <button className="btn btn-info" onClick={this.retry}>Retry?</button>
-                        </div>
-                    }
-                </div>
+                <Tooltip
+                    value={this.state.tooltipText}
+                    style={this.state.tooltipStyle}>
+                </Tooltip>
+                <SubmissionBox
+                    submissions={this.state.submissions}
+                    countries={this.state.countries}
+                    alreadyDone={this.state.alreadyDone}
+                    handleChange={this.handleChange}
+                    started={this.state.started}
+                    finished={this.state.finished}
+                    startTimer={this.startTimer}
+                    finish={this.finish}
+                    retry={this.retry}
+                    timer={this.state.timer}>
+                </SubmissionBox>
             </div>
         );
     }

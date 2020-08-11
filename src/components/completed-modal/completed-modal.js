@@ -20,7 +20,7 @@ class CompletedModal extends React.Component {
                             <ion-icon name="stopwatch-outline"></ion-icon> {this.props.time} 
                           </div>
                       </div>
-                      <p>Complete the below form to add your score to the leaderboard.</p>
+                      <p>Complete the below form to add your score to the leaderboard:</p>
                   </div>
                   <div className="form-group">
                       <label>Name</label>
