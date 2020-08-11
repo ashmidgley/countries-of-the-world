@@ -17,6 +17,7 @@ class Home extends React.Component {
             countries: null,
             alternativeNamings: null,
             countriesMap: null, 
+            dropdownOptions: null,
             submissions: [],
             started: false,
             timer: '15:00',
@@ -53,8 +54,10 @@ class Home extends React.Component {
         fetch(`${process.env.REACT_APP_API_URL}/countries/map`)
             .then(response => response.json())
             .then(data => {
+                var values = Array.from(Object.values(data));
                 this.setState({
-                    countriesMap: data
+                    countriesMap: data,
+                    dropdownOptions: [...new Set(values)]
                 });
             });
     }
@@ -292,7 +295,7 @@ class Home extends React.Component {
                 <CompletedModal
                     modalIsOpen={this.state.modalIsOpen}
                     submissions={this.state.submissions.length}
-                    countries={this.state.countriesMap}
+                    countries={this.state.dropdownOptions}
                     time={this.state.timer}
                     submitting={this.state.submitting}
                     name={this.state.name}

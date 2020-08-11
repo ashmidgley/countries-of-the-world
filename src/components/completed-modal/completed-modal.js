@@ -46,8 +46,8 @@ class CompletedModal extends React.Component {
                           onChange={this.props.handleCountryChange}>
                               <option value="" disabled defaultValue>Select country...</option>
                               {
-                                  Object.entries(this.props.countries).map(([key, value]) =>
-                                      <option key={key}>{value}</option>
+                                  this.props.countries.map(country =>
+                                      <option>{country}</option>
                                   )
                               }
                       </select>
