@@ -4,7 +4,6 @@ import 'react-svg-map/lib/index.css';
 import $ from 'jquery';
 import World from "@svg-maps/world";
 import Spinner from '../spinner/spinner';
-import Navigation from '../navigation/navigation';
 import CompletedModal from '../completed-modal/completed-modal';
 import SubmissionBox from '../submission-box/submission-box';
 import Tooltip from '../tooltip/tooltip';
@@ -30,7 +29,6 @@ class Home extends React.Component {
             countryInvalid: false,
             tooltipText: null,
             tooltipStyle: { "display": "none" },
-            trophyStyle: {},
             loading: true
         };
     }
@@ -257,23 +255,21 @@ class Home extends React.Component {
                 country: ''
             });
 
-            let self = this;
-            setTimeout(function() {
-                self.setState({
-                    trophyStyle: { "animation": "spin 1.5s" }
-                });
-
-                setTimeout(function() {
-                    self.setState({
-                        trophyStyle: {}
-                    });
-                }, 1500);
-            }, 500);
+            this.spinTrophy();
         })
         .catch(error => {
             console.error(error);
         });
 
+    }
+
+    spinTrophy = () => {
+        setTimeout(function() {
+            $("#trophy-icon").css("animation", "spin 1.5s")
+            setTimeout(function() {
+                $("#trophy-icon").css("animation", null)
+            }, 1500);
+        }, 500);
     }
 
     closeModal = (e) => {
@@ -293,7 +289,6 @@ class Home extends React.Component {
 
         return (
             <div className="home-container">
-                <Navigation trophyStyle={this.state.trophyStyle}></Navigation>
                 <CompletedModal
                     modalIsOpen={this.state.modalIsOpen}
                     submissions={this.state.submissions.length}

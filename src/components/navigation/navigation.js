@@ -11,11 +11,7 @@ class Navigation extends React.Component {
                     <ion-icon id="home-icon" name="home-outline"></ion-icon>
                 </Link>
                 <Link to='/leaderboard'>
-                    <ion-icon
-                        id="trophy-icon"
-                        name="trophy-outline"
-                        style={this.props.trophyStyle}>
-                    </ion-icon>
+                    <ion-icon id="trophy-icon" name="trophy-outline"></ion-icon>
                 </Link>
             </div>
         );

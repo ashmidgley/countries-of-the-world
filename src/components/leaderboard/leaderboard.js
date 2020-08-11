@@ -1,7 +1,6 @@
 import React from 'react';
 import './leaderboard.css';
 import Spinner from '../spinner/spinner';
-import Navigation from '../navigation/navigation';
 
 class Leaderboard extends React.Component {
     
@@ -49,7 +48,6 @@ class Leaderboard extends React.Component {
 
         return(
             <div className="leaderboard-container">
-                <Navigation></Navigation>
                 <div className="row justify-content-md-center">
                     <div className="col-md-6">
                         <div className="text-center">
