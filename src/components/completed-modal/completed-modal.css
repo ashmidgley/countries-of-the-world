@@ -1,0 +1,28 @@
+#modal-results {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.modal-result {
+    position: relative;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 24px;
+}
+
+  .modal-result > ion-icon {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+  }
+
+.modal-actions {
+    float: right;
+}
+
+#cancel {
+    margin-left: 10px;
+}

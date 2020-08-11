@@ -1,0 +1,24 @@
+#score-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 30px;
+    padding: 15px;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+    #score-container > input {
+        margin-bottom: 10px;
+    }
+
+#submission-validation {
+    font-size: 80%;
+    color: #dc3545;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+#submission-count {
+    margin-top: 10px;
+}
