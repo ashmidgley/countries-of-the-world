@@ -1,6 +1,7 @@
 import React from 'react';
 import './leaderboard.css';
 import Spinner from '../spinner/spinner';
+import { getTimeString } from '../../helpers/time';
 
 class Leaderboard extends React.Component {
     
@@ -72,7 +73,7 @@ class Leaderboard extends React.Component {
                                             <img id="flag" src={`/flags/${this.state.codes[entry.country]}.svg`} alt="Country flag"/>
                                         </td>
                                         <td>{entry.countries}</td>
-                                        <td>{entry.time}</td>
+                                        <td>{getTimeString(entry.time)}</td>
                                     </tr>
                                 )}
                             </tbody>

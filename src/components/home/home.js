@@ -23,7 +23,6 @@ class Home extends React.Component {
             stopWatch: 0,
             max: 15 * 60,
             clockString: "15:00",
-            expiredTime: "00:00",
             modalIsOpen: false,
             submitting: false,
             alreadyDone: false,
@@ -87,11 +86,9 @@ class Home extends React.Component {
             }
 
             var temp = self.state.stopWatch + 1;
-            var expiredTime = self.getExpiredTimeString(temp); 
             var clockString = self.getClockString(temp);
             self.setState({
                 stopWatch: temp,
-                expiredTime: expiredTime,
                 clockString: clockString
             });
 
@@ -102,17 +99,13 @@ class Home extends React.Component {
         }, 1000);
     }
 
-    getExpiredTimeString = (expired) => {
+    getClockString = (expired) => {
+        expired = this.state.max - expired;
         var minutes = Math.floor(expired / 60);
         var seconds = expired % 60;
         minutes = minutes < 10 ? '0' + minutes : minutes;
         seconds = seconds < 10 ? '0' + seconds : seconds;
         return `${minutes}:${seconds}`;
-    }
-
-    getClockString(expired) {
-      var clock = this.state.max - expired;
-      return this.getExpiredTimeString(clock);
     }
   
     finish = () => {
@@ -133,7 +126,6 @@ class Home extends React.Component {
             submissions: [],
             stopWatch: 0,
             clockString: '15:00',
-            expiredTime: '00:00',
             name: '',
             country: '',
             nameInvalid: false,
@@ -254,7 +246,7 @@ class Home extends React.Component {
             name: this.state.name,
             country: this.state.country,
             countries: this.state.submissions.length,
-            time: this.state.expiredTime
+            time: this.state.stopWatch
         };
 
         fetch(`${process.env.REACT_APP_API_URL}/leaderboard`, {
@@ -311,7 +303,7 @@ class Home extends React.Component {
                     modalIsOpen={this.state.modalIsOpen}
                     submissions={this.state.submissions.length}
                     countries={this.state.dropdownOptions}
-                    time={this.state.expiredTime}
+                    stopWatch={this.state.stopWatch}
                     submitting={this.state.submitting}
                     name={this.state.name}
                     nameInvalid={this.state.nameInvalid}

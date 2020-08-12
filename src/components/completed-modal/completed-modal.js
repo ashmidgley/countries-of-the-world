@@ -1,9 +1,25 @@
 import React from 'react';
 import './completed-modal.css';
-import { customStyles } from './custom-modal';
 import Modal from 'react-modal';
+import { customStyles } from './custom-modal';
+import { getTimeString } from '../../helpers/time';
 
 class CompletedModal extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            time: null
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        if(!prevProps.modalIsOpen && this.props.modalIsOpen) {
+            this.setState({
+                time: getTimeString(this.props.stopWatch)
+            });
+        }
+    }
 
   render() {
     return (
@@ -17,7 +33,7 @@ class CompletedModal extends React.Component {
                               <ion-icon name="earth-outline"></ion-icon> {this.props.submissions} 
                           </div>
                           <div className="modal-result">
-                            <ion-icon name="stopwatch-outline"></ion-icon> {this.props.time} 
+                            <ion-icon name="stopwatch-outline"></ion-icon> {this.state.time} 
                           </div>
                       </div>
                       <p>Complete the below form to add your score to the leaderboard:</p>
