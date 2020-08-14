@@ -277,7 +277,7 @@ class Home extends React.Component {
         setTimeout(function() {
             $("#trophy-icon").css("animation", "spin 1.5s")
             setTimeout(function() {
-                $("#trophy-icon").css("animation", null)
+                $("#trophy-icon").css("animation", "")
             }, 1500);
         }, 500);
     }
