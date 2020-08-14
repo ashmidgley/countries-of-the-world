@@ -19,7 +19,7 @@ class Leaderboard extends React.Component {
             .then(response => response.json())
             .then(data => {
                 this.setState({
-                    entries: data
+                    entries: this.sortEntries(data)
                 });
             });
 
@@ -30,6 +30,14 @@ class Leaderboard extends React.Component {
                     codes: data
                 });
             });
+    }
+
+    sortEntries(entries) {
+        return entries.sort((left, right) => {
+            if(left.countries === right.countries)
+                return left.time > right.time;
+            return left.countries < right.countries;
+        });
     }
 
     componentDidUpdate() {
