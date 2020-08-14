@@ -24,12 +24,7 @@ class Home extends React.Component {
             max: 15 * 60,
             clockString: "15:00",
             modalIsOpen: false,
-            submitting: false,
             alreadyDone: false,
-            name: '',
-            nameInvalid: false,
-            country: '',
-            countryInvalid: false,
             tooltipText: null,
             tooltipStyle: { "display": "none" },
             loading: true
@@ -125,11 +120,7 @@ class Home extends React.Component {
             finished: false,
             submissions: [],
             stopWatch: 0,
-            clockString: '15:00',
-            name: '',
-            country: '',
-            nameInvalid: false,
-            countryInvalid: false
+            clockString: '15:00'
         });
 
         for (const [key, value] of Object.entries(this.state.countriesMap)) {
@@ -209,81 +200,9 @@ class Home extends React.Component {
         });
     }
 
-    handleNameChange = (event) => {
-        this.setState({
-            name: event.target.value
-        });
-    }
-
-    handleCountryChange = (event) => {
-        this.setState({
-            country: event.target.value
-        });
-    }
-
-    handleModalSubmit = (e) => {
-        e.preventDefault();
-        this.setState({
-            submitting: true,
-            nameInvalid: false,
-            countryInvalid: false
-        });
-
-        if(this.state.name === '' || this.state.country === '') {
-            var nameInvalid = this.state.name === '';
-            var countryInvalid = this.state.country === '';
-
-            this.setState({
-                countryInvalid: countryInvalid,
-                nameInvalid: nameInvalid,
-                submitting: false
-            });
-
-            return;
-        }
-
-        var data = {
-            name: this.state.name,
-            country: this.state.country,
-            countries: this.state.submissions.length,
-            time: this.state.stopWatch
-        };
-
-        fetch(`${process.env.REACT_APP_API_URL}/leaderboard`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
-        .then(response => response.json())
-        .then(data => {
-            this.setState({
-                modalIsOpen: false,
-                submitting: false,
-                name: '',
-                country: ''
-            });
-
-            this.spinTrophy();
-        })
-        .catch(error => {
-            console.error(error);
-        });
-
-    }
-
-    spinTrophy = () => {
-        setTimeout(function() {
-            $("#trophy-icon").css("animation", "spin 1.5s")
-            setTimeout(function() {
-                $("#trophy-icon").css("animation", "")
-            }, 1500);
-        }, 500);
-    }
-
-    closeModal = (e) => {
-        e.preventDefault();
+    closeModal = (e = null) => {
+        if(e)
+            e.preventDefault();
 
         this.setState({
             modalIsOpen: false
@@ -304,14 +223,6 @@ class Home extends React.Component {
                     submissions={this.state.submissions.length}
                     countries={this.state.dropdownOptions}
                     stopWatch={this.state.stopWatch}
-                    submitting={this.state.submitting}
-                    name={this.state.name}
-                    nameInvalid={this.state.nameInvalid}
-                    country={this.state.country}
-                    countryInvalid={this.state.countryInvalid}
-                    handleNameChange={this.handleNameChange}
-                    handleCountryChange={this.handleCountryChange}
-                    handleSubmit={this.handleModalSubmit}
                     closeModal={this.closeModal}>
                 </CompletedModal>
                 <SVGMap
