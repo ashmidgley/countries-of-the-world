@@ -61,10 +61,10 @@ CK | Cook Islands | cook islands
 CR | Costa Rica | costa rica
 HR | Croatia | croatia
 CU | Cuba | cuba
-CW | Curaçao | curaçao
+CW | Curaçao | curaçao, curacao
 CY | Cyprus | cyprus
 CZ | Czech Republic | czech republic
-CI | Côte d'Ivoire | côte d'ivoire
+CI | Côte d'Ivoire | côte d'ivoire, cote d'ivoire, ivory coast
 CD | Democratic Republic of Congo | democratic republic of congo
 DK | Denmark | denmark
 DJ | Djibouti | djibouti
@@ -131,7 +131,7 @@ KI | Kiribati | kiribati
 XK | Kosovo | kosovo
 KW | Kuwait | kuwait
 KG | Kyrgyzstan | kyrgyzstan
-LA | Lao People's Democratic Republic | lao people's democratic republic
+LA | Lao People's Democratic Republic | lao people's democratic republic, laos
 LV | Latvia | latvia
 LB | Lebanon | lebanon
 LS | Lesotho | lesotho
@@ -140,7 +140,7 @@ LY | Libya | libya
 LI | Liechtenstein | liechtenstein
 LT | Lithuania | lithuania
 LU | Luxembourg | luxembourg
-MO | Macau | macau
+MO | Macau | macau, macao
 MK | Macedonia | macedonia
 MG | Madagascar | madagascar
 MW | Malawi | malawi
@@ -180,7 +180,7 @@ NO | Norway | norway
 OM | Oman | oman
 PK | Pakistan | pakistan
 PW | Palau | palau
-PS | Palestinian Territories | palestinian territories
+PS | Palestinian Territories | palestinian territories, palestine
 PA | Panama | panama
 PG | Papua New Guinea | papua new guinea
 PY | Paraguay | paraguay
@@ -217,7 +217,7 @@ SI | Slovenia | slovenia
 SB | Solomon Islands | solomon islands
 SO | Somalia | somalia
 ZA | South Africa | south africa
-GS | South Georgia and South Sandwich Islands | south georgia and south sandwich islands
+GS | South Georgia and South Sandwich Islands | south georgia and south sandwich islands, south georgia and the south sandwich islands
 KR | South Korea | south korea
 SS | South Sudan | south sudan
 ES | Spain | spain
