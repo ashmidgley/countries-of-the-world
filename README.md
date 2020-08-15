@@ -2,8 +2,6 @@
 
 An map quiz built with React and [Go](https://github.com/ashmidgley/countries-of-the-world-api).
 
-## Countries
-
 ISO-3166 Code | Country | Accepted Answers
 --- | --- | ---
 AF | Afghanistan | afghanistan
