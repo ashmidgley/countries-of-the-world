@@ -22,3 +22,7 @@
 #submission-count {
     margin-top: 10px;
 }
+
+.danger-zone {
+    color: red;
+}

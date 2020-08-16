@@ -23,7 +23,9 @@ class SubmissionBox extends React.Component {
                 <p id="submission-count" className="card-text text-center">
                     {this.props.submissions.length} of {this.props.countries.length}
                 </p>
-                <h1 className="text-center">{this.props.timer}</h1>
+                <h1 className={this.props.dangerZone ? "text-center danger-zone" : "text-center"}>
+                    {this.props.timer}
+                </h1>
                 {
                     !this.props.started && !this.props.finished &&
                     <div className="text-center">
