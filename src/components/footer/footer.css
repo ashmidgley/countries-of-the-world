@@ -1,16 +1,31 @@
 .footer {
-    background-color: #fafafa;
-    padding: 3rem 1.5rem 6rem;
+    color: #4f4f4f;
+    font-size: .9rem;
+    font-family: "Roboto",sans-serif;
+    font-weight: 300;
+    background-color: #eceff1 !important;
 }
 
-.footer-content {
-    text-align: center !important;
+    .footer a {
+        color: inherit;
+    }
+
+    .footer hr {
+        width: 60px;
+    }
+
+.footer-copyright {
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: rgba(0, 0, 0, 0.5) !important;
 }
 
-#github-icon {
-    color: inherit;
+.text-container {
+    text-align: center; 
+    max-width: 50%;
+    padding-bottom: 30px;
 }
 
-    #github-icon > ion-icon {
-        font-size: 24px;
+    .text-container li {
+        margin-bottom: 1rem;
     }

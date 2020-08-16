@@ -97,7 +97,7 @@ class CompletedModal extends React.Component {
                                 <div className="form-group">
                                     <label>Name</label>
                                     <input
-                                        className={errors.name ? "form-control is-invalid" : "form-control"}
+                                        className={touched.name && errors.name ? "form-control is-invalid" : "form-control"}
                                         type="text"
                                         name="name"
                                         value={values.title}
@@ -106,7 +106,7 @@ class CompletedModal extends React.Component {
                                         placeholder="Enter name..."
                                     />
                                     {
-                                        errors.name &&
+                                        touched.name && errors.name &&
                                         <div className="invalid-feedback">
                                             {errors.name} 
                                         </div>
@@ -115,7 +115,7 @@ class CompletedModal extends React.Component {
                                 <div className="form-group">
                                     <label>Country</label>
                                     <select
-                                        className={errors.country ? "form-control is-invalid" : "form-control"}
+                                        className={touched.country && errors.country ? "form-control is-invalid" : "form-control"}
                                         name="country"
                                         value={values.country}
                                         onChange={handleChange}
@@ -133,7 +133,7 @@ class CompletedModal extends React.Component {
                                         }
                                     </select>
                                     {
-                                        errors.country &&
+                                        touched.country && errors.country &&
                                         <div className="invalid-feedback">
                                             {errors.country}
                                         </div>

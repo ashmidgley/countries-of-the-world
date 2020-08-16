@@ -27,6 +27,7 @@ class Home extends React.Component {
             alreadyDone: false,
             tooltipText: null,
             tooltipStyle: { "display": "none" },
+            dangerZone: false,
             loading: true
         };
     }
@@ -87,6 +88,12 @@ class Home extends React.Component {
                 clockString: clockString
             });
 
+            if(!self.state.dangerZone && self.state.stopWatch > (self.state.max - 60)) {
+                self.setState({
+                    dangerZone: true
+                });
+            }
+
             if (self.state.stopWatch >= self.state.max) {
                 self.finish();
                 clearInterval(countdown);
@@ -120,7 +127,8 @@ class Home extends React.Component {
             finished: false,
             submissions: [],
             stopWatch: 0,
-            clockString: '15:00'
+            clockString: '15:00',
+            dangerZone: false
         });
 
         for (const [key, value] of Object.entries(this.state.countriesMap)) {
@@ -225,12 +233,14 @@ class Home extends React.Component {
                     stopWatch={this.state.stopWatch}
                     closeModal={this.closeModal}>
                 </CompletedModal>
-                <SVGMap
-                    map={World}
-                    onLocationMouseOver={this.mouseOver}
-                    onLocationMouseMove={this.mouseMove}
-                    onLocationMouseOut={this.mouseOut}
-                />
+                <div className="map-container">
+                    <SVGMap
+                        map={World}
+                        onLocationMouseOver={this.mouseOver}
+                        onLocationMouseMove={this.mouseMove}
+                        onLocationMouseOut={this.mouseOut}
+                    />
+                </div>
                 <Tooltip
                     value={this.state.tooltipText}
                     style={this.state.tooltipStyle}>
@@ -242,6 +252,7 @@ class Home extends React.Component {
                     started={this.state.started}
                     finished={this.state.finished}
                     timer={this.state.clockString}
+                    dangerZone={this.state.dangerZone}
                     startTimer={this.startTimer}
                     handleSubmission={this.handleSubmission}
                     finish={this.finish}

@@ -5,6 +5,7 @@
     top: 0;
     left: 0;
     margin: 30px;
+    z-index: 1;
 }
 
 #trophy-icon {
@@ -14,6 +15,7 @@
     top: 0;
     right: 0;
     margin: 30px;
+    z-index: 1;
 }
 
 @-moz-keyframes spin {
