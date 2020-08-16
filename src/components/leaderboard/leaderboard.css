@@ -1,3 +1,8 @@
+.leaderboard-container {
+    min-height: 100vh;
+    padding-bottom: 30px;
+}
+
 .leaderboard-container h1 {
     margin-top: 30px;
     margin-bottom: 30px;

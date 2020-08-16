@@ -225,12 +225,14 @@ class Home extends React.Component {
                     stopWatch={this.state.stopWatch}
                     closeModal={this.closeModal}>
                 </CompletedModal>
-                <SVGMap
-                    map={World}
-                    onLocationMouseOver={this.mouseOver}
-                    onLocationMouseMove={this.mouseMove}
-                    onLocationMouseOut={this.mouseOut}
-                />
+                <div className="map-container">
+                    <SVGMap
+                        map={World}
+                        onLocationMouseOver={this.mouseOver}
+                        onLocationMouseMove={this.mouseMove}
+                        onLocationMouseOut={this.mouseOut}
+                    />
+                </div>
                 <Tooltip
                     value={this.state.tooltipText}
                     style={this.state.tooltipStyle}>
