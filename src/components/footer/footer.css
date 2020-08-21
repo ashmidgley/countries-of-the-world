@@ -29,3 +29,10 @@
     .text-container li {
         margin-bottom: 1rem;
     }
+
+@media only screen and (max-width: 600px) {
+    .footer .container-fluid {
+        max-width: 90%;
+    }
+}
+

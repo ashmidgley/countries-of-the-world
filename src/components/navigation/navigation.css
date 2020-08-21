@@ -32,3 +32,9 @@
     from {transform:rotate(0deg);}
     to {transform:rotate(360deg);}
 }
+
+@media only screen and (max-width: 600px) {
+    #home-icon, #trophy-icon {
+        font-size: 32px !important;
+    }
+}
