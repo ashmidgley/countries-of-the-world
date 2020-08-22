@@ -1,6 +1,6 @@
 ## Countries of the World
 
-An map quiz built with React and [Go](https://github.com/ashmidgley/countries-of-the-world-api).
+A map quiz built with React and [Go](https://github.com/ashmidgley/countries-of-the-world-api).
 
 ## Countries
 
