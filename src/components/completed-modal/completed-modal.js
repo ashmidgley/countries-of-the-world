@@ -147,7 +147,10 @@ class CompletedModal extends React.Component {
                                             <span className="spinner-border spinner-border-sm"></span>
                                         </button>
                                         :
-                                        <button className="btn btn-success" type="submit">
+                                        <button
+                                            className="btn btn-success"
+                                            type="submit"
+                                            disabled={isSubmitting}>
                                             Submit
                                         </button>
                                     }
