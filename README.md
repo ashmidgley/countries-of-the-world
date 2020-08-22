@@ -1,4 +1,4 @@
-## Countries of the World
+# Countries of the World
 
 A map quiz built with React and [Go](https://github.com/ashmidgley/countries-of-the-world-api).
 
@@ -261,3 +261,6 @@ EH | Western Sahara | western sahara
 YE | Yemen | yemen
 ZM | Zambia | zambia
 ZW | Zimbabwe | zimbabwe
+
+## Contributing
+Interested in contributing to this project? Check out the [guide](https://github.com/ashmidgley/countries-of-the-world/blob/master/CONTRIBUTING.md).
