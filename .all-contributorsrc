@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "hanwebs",
+      "name": "hanwebs",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/70232257?v=4",
+      "profile": "https://github.com/hanwebs",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "countries-of-the-world",
+  "projectOwner": "ashmidgley",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
