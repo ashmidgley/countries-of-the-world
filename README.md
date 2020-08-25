@@ -243,13 +243,13 @@ TR | Turkey | turkey
 TM | Turkmenistan | turkmenistan
 TC | Turks and Caicos Islands | turks and caicos islands
 TV | Tuvalu | tuvalu
-VI | US Virgin Islands | uganda
-UG | Uganda | ukraine
-UA | Ukraine | united arab emirates
-AE | United Arab Emirates | united kingdom
-GB | United Kingdom | united states
-US | United States | uruguay
-UY | Uruguay | us virgin islands
+VI | US Virgin Islands | us virgin islands
+UG | Uganda | uganda
+UA | Ukraine | ukraine
+AE | United Arab Emirates | united arab emirates
+GB | United Kingdom | united kingdom
+US | United States | united states
+UY | Uruguay | uruguay
 UZ | Uzbekistan | uzbekistan
 VU | Vanuatu | vanuatu
 VA | Vatican City | vatican city
