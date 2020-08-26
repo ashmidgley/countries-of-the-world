@@ -43,21 +43,21 @@ BV | Bouvet Island | bouvet island
 BR | Brazil | brazil
 IO | British Indian Ocean Territory | british indian ocean territory
 VG | British Virgin Islands | british virgin islands
-BN | Brunei Darussalam | brunei darussalam
+BN | Brunei Darussalam | brunei darussalam, brunei
 BG | Bulgaria | bulgaria
 BF | Burkina Faso | burkina faso
 BI | Burundi | burundi
 KH | Cambodia | cambodia
 CM | Cameroon | cameroon
 CA | Canada | canada
-CV | Cape Verde | cape verde
+CV | Cape Verde | cape verde, cabo verde
 KY | Cayman Islands | cayman islands
 CF | Central African Republic | central african republic
 TD | Chad | chad
 CL | Chile | chile
 CN | China | china
 CX | Christmas Island | christmas island
-CC | Cocos (Keeling) Islands | cocos (keeling) islands
+CC | Cocos (Keeling) Islands | cocos (keeling) islands, cocos islands, keeling islands
 CO | Colombia | colombia
 KM | Comoros | comoros
 CK | Cook Islands | cook islands
@@ -66,7 +66,7 @@ HR | Croatia | croatia
 CU | Cuba | cuba
 CW | Curaçao | curaçao, curacao
 CY | Cyprus | cyprus
-CZ | Czech Republic | czech republic
+CZ | Czech Republic | czech republic, czechia
 CI | Côte d'Ivoire | côte d'ivoire, cote d'ivoire, ivory coast
 CD | Democratic Republic of Congo | democratic republic of congo
 DK | Denmark | denmark
@@ -82,7 +82,7 @@ EE | Estonia | estonia
 ET | Ethiopia | ethiopia
 FK | Falkland Islands | falkland islands
 FO | Faroe Islands | faroe islands
-FM | Federated States of Micronesia | federated states of micronesia
+FM | Federated States of Micronesia | federated states of micronesia, micronesia
 FJ | Fiji | fiji
 FI | Finland | finland
 FR | France | france
