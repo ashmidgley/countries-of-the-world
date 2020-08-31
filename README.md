@@ -1,4 +1,7 @@
 # Countries of the World
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 A map quiz built with React and [Go](https://github.com/ashmidgley/countries-of-the-world-api).
 
@@ -40,21 +43,21 @@ BV | Bouvet Island | bouvet island
 BR | Brazil | brazil
 IO | British Indian Ocean Territory | british indian ocean territory
 VG | British Virgin Islands | british virgin islands
-BN | Brunei Darussalam | brunei darussalam
+BN | Brunei Darussalam | brunei darussalam, brunei
 BG | Bulgaria | bulgaria
 BF | Burkina Faso | burkina faso
 BI | Burundi | burundi
 KH | Cambodia | cambodia
 CM | Cameroon | cameroon
 CA | Canada | canada
-CV | Cape Verde | cape verde
+CV | Cape Verde | cape verde, cabo verde
 KY | Cayman Islands | cayman islands
 CF | Central African Republic | central african republic
 TD | Chad | chad
 CL | Chile | chile
 CN | China | china
 CX | Christmas Island | christmas island
-CC | Cocos (Keeling) Islands | cocos (keeling) islands
+CC | Cocos (Keeling) Islands | cocos (keeling) islands, cocos islands, keeling islands
 CO | Colombia | colombia
 KM | Comoros | comoros
 CK | Cook Islands | cook islands
@@ -63,7 +66,7 @@ HR | Croatia | croatia
 CU | Cuba | cuba
 CW | Curaçao | curaçao, curacao
 CY | Cyprus | cyprus
-CZ | Czech Republic | czech republic
+CZ | Czech Republic | czech republic, czechia
 CI | Côte d'Ivoire | côte d'ivoire, cote d'ivoire, ivory coast
 CD | Democratic Republic of Congo | democratic republic of congo
 DK | Denmark | denmark
@@ -79,7 +82,7 @@ EE | Estonia | estonia
 ET | Ethiopia | ethiopia
 FK | Falkland Islands | falkland islands
 FO | Faroe Islands | faroe islands
-FM | Federated States of Micronesia | federated states of micronesia
+FM | Federated States of Micronesia | federated states of micronesia, micronesia
 FJ | Fiji | fiji
 FI | Finland | finland
 FR | France | france
@@ -243,13 +246,13 @@ TR | Turkey | turkey
 TM | Turkmenistan | turkmenistan
 TC | Turks and Caicos Islands | turks and caicos islands
 TV | Tuvalu | tuvalu
-VI | US Virgin Islands | uganda
-UG | Uganda | ukraine
-UA | Ukraine | united arab emirates
-AE | United Arab Emirates | united kingdom
-GB | United Kingdom | united states
-US | United States | uruguay
-UY | Uruguay | us virgin islands
+VI | US Virgin Islands | us virgin islands
+UG | Uganda | uganda
+UA | Ukraine | ukraine
+AE | United Arab Emirates | united arab emirates
+GB | United Kingdom | united kingdom
+US | United States | united states
+UY | Uruguay | uruguay
 UZ | Uzbekistan | uzbekistan
 VU | Vanuatu | vanuatu
 VA | Vatican City | vatican city
@@ -264,3 +267,22 @@ ZW | Zimbabwe | zimbabwe
 
 ## Contributing
 Interested in contributing to this project? Check out the [guide](https://github.com/ashmidgley/countries-of-the-world/blob/master/CONTRIBUTING.md).
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/hanwebs"><img src="https://avatars0.githubusercontent.com/u/70232257?v=4" width="100px;" alt=""/><br /><sub><b>hanwebs</b></sub></a><br /><a href="https://github.com/ashmidgley/countries-of-the-world/commits?author=hanwebs" title="Documentation">📖</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
