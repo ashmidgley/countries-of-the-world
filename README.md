@@ -146,7 +146,7 @@ PH | Philippines | philippines
 PL | Poland | poland
 PT | Portugal | portugal
 QA | Qatar | qatar
-CG | Republic of Congo | republic of congo
+CG | Republic of Congo | republic of congo, republic of the congo
 RO | Romania | romania
 RU | Russia | russia
 RW | Rwanda | rwanda
