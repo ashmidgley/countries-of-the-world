@@ -2,17 +2,19 @@ import React from 'react';
 import './home.css';
 import 'react-svg-map/lib/index.css';
 import $ from 'jquery';
-import World from "@svg-maps/world";
 import Spinner from '../spinner/spinner';
 import CompletedModal from '../completed-modal/completed-modal';
 import SubmissionBox from '../submission-box/submission-box';
 import Tooltip from '../tooltip/tooltip';
 import { SVGMap } from "react-svg-map";
+import { getWorld } from '../../helpers/map.js'; 
 
 class Home extends React.Component {
 
     constructor(props) {
         super(props);
+        this.customWorld = getWorld(); 
+
         this.state = {
             countries: null,
             alternativeNamings: null,
@@ -184,7 +186,7 @@ class Home extends React.Component {
     }
 
     mouseMove = (event) => {
-        if(!this.state.finished)
+        if(!this.state.finished || !this.state.tooltipText)
             return;
 
         var style = {
@@ -235,7 +237,7 @@ class Home extends React.Component {
                 </CompletedModal>
                 <div className="map-container">
                     <SVGMap
-                        map={World}
+                        map={this.customWorld}
                         onLocationMouseOver={this.mouseOver}
                         onLocationMouseMove={this.mouseMove}
                         onLocationMouseOut={this.mouseOut}
