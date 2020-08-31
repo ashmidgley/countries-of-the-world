@@ -15,7 +15,7 @@ class Footer extends React.Component {
                                 Too long have we missed Geography questions on University Challenge.
                                 Too long have we been duped by competitors from all corners of the British Isles.
                                 It is time to stand in defiance of this tyranny, to trade in your UChal wooden spoon for the Paxman gold medal.
-                                Today we train and tomorrow we smuggly list the islands of the Carribean.
+                                Today we train and tomorrow we smugly list the islands of the Caribbean.
                                 Yes, my friend, they may take your History round, but they will never take your Geography.
                             </p>
                             <p>
