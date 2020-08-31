@@ -37,20 +37,20 @@ BI | Burundi | burundi
 KH | Cambodia | cambodia
 CM | Cameroon | cameroon
 CA | Canada | canada
-CV | Cape Verde | cape verde
-CF | Central African Republic | central african republic
+CV | Cape Verde | cape verde, cabo verde
+CF | Central African Republic | central african republic, car
 TD | Chad | chad
 CL | Chile | chile
 CN | China | china
 CO | Colombia | colombia
 KM | Comoros | comoros
 CR | Costa Rica | costa rica
-HR | Croatia | cote d'ivoire
-CU | Cuba | croatia
-CY | Cyprus | cuba
-CZ | Czech Republic | cyprus
-CI | Côte d'Ivoire | czech republic
-CD | Democratic Republic of Congo | democratic republic of congo
+HR | Croatia | croatia
+CU | Cuba | cuba
+CY | Cyprus | cyprus
+CZ | Czech Republic | czech republic, czechia
+CI | Côte d'Ivoire | côte d'Ivoire, cote d'ivoire, ivory coast
+CD | Democratic Republic of Congo | democratic republic of congo, drc
 DK | Denmark | denmark
 DJ | Djibouti | djibouti
 DM | Dominica | dominica
@@ -62,7 +62,7 @@ GQ | Equatorial Guinea | equatorial guinea
 ER | Eritrea | eritrea
 EE | Estonia | estonia
 ET | Ethiopia | ethiopia
-FM | Federated States of Micronesia | federated states of micronesia
+FM | Federated States of Micronesia | federated states of micronesia, micronesia
 FJ | Fiji | fiji
 FI | Finland | finland
 FR | France | france
@@ -97,7 +97,7 @@ KI | Kiribati | kiribati
 XK | Kosovo | kosovo
 KW | Kuwait | kuwait
 KG | Kyrgyzstan | kyrgyzstan
-LA | Lao People's Democratic Republic | lao people's democratic republic
+LA | Lao People's Democratic Republic | lao people's democratic republic, laos
 LV | Latvia | latvia
 LB | Lebanon | lebanon
 LS | Lesotho | lesotho
@@ -106,7 +106,7 @@ LY | Libya | libya
 LI | Liechtenstein | liechtenstein
 LT | Lithuania | lithuania
 LU | Luxembourg | luxembourg
-MK | Macedonia | macedonia
+MK | Macedonia | macedonia, north macedonia
 MG | Madagascar | madagascar
 MW | Malawi | malawi
 MY | Malaysia | malaysia
@@ -123,7 +123,7 @@ MN | Mongolia | mongolia
 ME | Montenegro | montenegro
 MA | Morocco | morocco
 MZ | Mozambique | mozambique
-MM | Myanmar | myanmar
+MM | Myanmar | myanmar, burma
 NA | Namibia | namibia
 NR | Nauru | nauru
 NP | Nepal | nepal
@@ -137,7 +137,7 @@ NO | Norway | norway
 OM | Oman | oman
 PK | Pakistan | pakistan
 PW | Palau | palau
-PS | Palestinian Territories | palestinian territories
+PS | Palestinian Territories | palestinian territories, palestine
 PA | Panama | panama
 PG | Papua New Guinea | papua new guinea
 PY | Paraguay | paraguay
@@ -173,7 +173,7 @@ ES | Spain | spain
 LK | Sri Lanka | sri lanka
 SD | Sudan | sudan
 SR | Suriname | suriname
-SZ | Swaziland | swaziland
+SZ | Swaziland | swaziland, eswatini
 SE | Sweden | sweden
 CH | Switzerland | switzerland
 SY | Syria | syria
@@ -191,13 +191,13 @@ TM | Turkmenistan | turkmenistan
 TV | Tuvalu | tuvalu
 UG | Uganda | uganda
 UA | Ukraine | ukraine
-AE | United Arab Emirates | united arab emirates
-GB | United Kingdom | united kingdom
-US | United States | united states
+AE | United Arab Emirates | united arab emirates, uae
+GB | United Kingdom | united kingdom, uk
+US | United States | united states, usa
 UY | Uruguay | uruguay
 UZ | Uzbekistan | uzbekistan
 VU | Vanuatu | vanuatu
-VA | Vatican City | vatican city
+VA | Vatican City | vatican city, holy see
 VE | Venezuela | venezuela
 VN | Vietnam | vietnam
 YE | Yemen | yemen
