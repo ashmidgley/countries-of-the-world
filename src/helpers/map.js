@@ -24,10 +24,8 @@ export const getWorld = () => {
                 case 'Aland Islands':
                 case 'Saint Barthelemy':
                 case 'Bermuda':
-                case 'Brunei Darussalam':
                 case 'Bouvet Island':
                 case 'Cocos (Keeling) Islands':
-                case "Côte d'Ivoire":
                 case 'Cook Islands':
                 case 'Curaçao':
                 case 'Christmas Island':

@@ -161,6 +161,10 @@ class Home extends React.Component {
         });
 
         event.target.value = "";
+
+        if(this.state.submissions.length === this.state.countries.length) {
+            this.finish();
+        }
     }
 
     flashAlreadyDone = () => {
