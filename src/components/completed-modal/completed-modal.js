@@ -141,19 +141,12 @@ class CompletedModal extends React.Component {
                                 </div>
                                 <hr />
                                 <div className="modal-actions">
-                                    {
-                                        isSubmitting ?
-                                        <button className="btn btn-success" disabled>
-                                            <span className="spinner-border spinner-border-sm"></span>
-                                        </button>
-                                        :
-                                        <button
-                                            className="btn btn-success"
-                                            type="submit"
-                                            disabled={isSubmitting}>
-                                            Submit
-                                        </button>
-                                    }
+                                    <button
+                                        className="btn btn-success"
+                                        type="submit"
+                                        disabled={isSubmitting}>
+                                        Submit
+                                    </button>
                                     <button
                                         id="cancel"
                                         className="btn btn-light"
