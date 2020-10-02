@@ -1,5 +1,6 @@
 import React from 'react';
 import './leaderboard.css';
+import Helmet from 'react-helmet';
 import Spinner from '../spinner/spinner';
 import { getTimeString } from '../../helpers/time';
 
@@ -68,6 +69,13 @@ class Leaderboard extends React.Component {
 
         return(
             <div className="leaderboard-container">
+                <Helmet>
+                    <title>Countries of the World Map Quiz - Leaderboard</title>
+                    <meta
+                        name="description"
+                        content="Check out the Countries of the World Map Quiz leaderboard to see how your score and time compares with others. Did you get all 197?"
+                    />
+                </Helmet>
                 <div className="row justify-content-md-center">
                     <div className="col-md-6">
                         <div className="text-center">
@@ -98,10 +106,10 @@ class Leaderboard extends React.Component {
                             </tbody>
                         </table>
                         <div className="float-right">
-                            <button className="btn" onClick={this.pageBack} disabled={this.state.page === 0}>
+                            <button className="btn pager" onClick={this.pageBack} disabled={this.state.page === 0}>
                                 <ion-icon name="caret-back-outline" ></ion-icon>
                             </button>
-                            <button className="btn" onClick={this.pageForward} disabled={!this.state.hasMore}>
+                            <button className="btn pager" onClick={this.pageForward} disabled={!this.state.hasMore}>
                                 <ion-icon name="caret-forward-outline"></ion-icon>
                             </button>
                         </div>

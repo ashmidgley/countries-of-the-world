@@ -2,6 +2,7 @@ import React from 'react';
 import './home.css';
 import 'react-svg-map/lib/index.css';
 import $ from 'jquery';
+import Helmet from 'react-helmet';
 import Spinner from '../spinner/spinner';
 import CompletedModal from '../completed-modal/completed-modal';
 import SubmissionBox from '../submission-box/submission-box';
@@ -232,6 +233,13 @@ class Home extends React.Component {
 
         return (
             <div className="home-container">
+                <Helmet>
+                    <title>Countries of the World Map Quiz</title>
+                    <meta
+                        name="description"
+                        content="Countries of the World Map Quiz. Can you name all 197? Test your geography skills and see where you land on the leaderboard."
+                    />
+                </Helmet>
                 <CompletedModal
                     modalIsOpen={this.state.modalIsOpen}
                     submissions={this.state.submissions.length}
