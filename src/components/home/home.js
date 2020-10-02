@@ -19,6 +19,7 @@ class Home extends React.Component {
         this.state = {
             countries: null,
             alternativeNamings: null,
+            prefixes: null,
             countriesMap: null, 
             dropdownOptions: null,
             submissions: [],
@@ -52,6 +53,14 @@ class Home extends React.Component {
                 });
             });
         
+        fetch(`${process.env.REACT_APP_API_URL}/countries/prefixes`)
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    prefixes: data
+                });
+            });
+        
         fetch(`${process.env.REACT_APP_API_URL}/countries/map`)
             .then(response => response.json())
             .then(data => {
@@ -64,8 +73,11 @@ class Home extends React.Component {
     }
 
     componentDidUpdate() {
-        if(this.state.loading && this.state.countries
-            && this.state.alternativeNamings && this.state.countriesMap) {
+        if(this.state.loading
+            && this.state.countries
+            && this.state.alternativeNamings
+            && this.state.prefixes
+            && this.state.countriesMap) {
             this.setState({
                 loading: false
             });
@@ -119,7 +131,7 @@ class Home extends React.Component {
             modalIsOpen: true
         });
 
-        for (const [key, value] of Object.entries(this.state.countriesMap)) {
+        for (var value of Object.values(this.state.countriesMap)) {
             if(!this.state.submissions.includes(value))
                 $(`[name="${value}"]`).css({ fill: "#f4bc44" });
         } 
@@ -134,7 +146,7 @@ class Home extends React.Component {
             dangerZone: false
         });
 
-        for (const [key, value] of Object.entries(this.state.countriesMap)) {
+        for (var value of Object.values(this.state.countriesMap)) {
             $(`[name="${value}"]`).css({ fill: "lightgrey" });
         } 
 
@@ -143,11 +155,17 @@ class Home extends React.Component {
 
     handleSubmission = (event) => {
         var submission = event.target.value.toLowerCase().trim();
-        if(!this.state.countries.includes(submission) &&
-            !this.state.alternativeNamings.includes(submission))
+        if(!this.state.countries.includes(submission) && !this.state.alternativeNamings.includes(submission)) {
             return;
+        }
 
         var name = this.state.countriesMap[submission];
+        if(submission in this.state.prefixes
+            && this.state.submissions.includes(name)
+            && !this.state.submissions.includes(this.state.prefixes[submission])) {
+            return;
+        }
+
         if(name && this.state.submissions.includes(name)) {
             this.flashAlreadyDone();
             return;

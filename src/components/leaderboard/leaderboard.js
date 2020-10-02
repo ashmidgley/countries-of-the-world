@@ -92,9 +92,9 @@ class Leaderboard extends React.Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.state.entries.map(entry =>
+                                {this.state.entries.map((entry, index) =>
                                     <tr key={entry.id}>
-                                        <td>{(this.state.entries.indexOf(entry)+1)+(this.state.page*10)}</td>
+                                        <td>{this.state.page*10+index+1}</td>
                                         <td>{entry.name}</td>
                                         <td>
                                             <img id="flag" src={`/flags/${this.state.codes[entry.country]}.svg`} alt="Country flag"/>
