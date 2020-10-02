@@ -127,8 +127,8 @@ class CompletedModal extends React.Component {
                                             Select country...
                                         </option>
                                         {
-                                            this.props.countries.map(country =>
-                                                <option>{country}</option>
+                                            this.props.countries.map((country, index) =>
+                                                <option key={index}>{country}</option>
                                             )
                                         }
                                     </select>
