@@ -14,6 +14,10 @@
     border: lightgray 1px solid;
 }
 
+.pager:focus {
+    box-shadow: none;
+}
+
 @media only screen and (max-width: 600px) {
     .leaderboard-container h1 {
         visibility: hidden;

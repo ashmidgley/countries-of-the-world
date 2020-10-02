@@ -74,6 +74,8 @@ export const getWorld = () => {
                 case 'Wake Island':
                     location.name = null;
                     break;
+                default:
+                    break;
             }
 
             return location;
