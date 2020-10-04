@@ -1,10 +1,9 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './components/home/home';
-import Leaderboard from './components/leaderboard/leaderboard';
-import Footer from './components/footer/footer';
+import { BrowserRouter } from 'react-router-dom';
 import Navigation from './components/navigation/navigation';
+import Routes from './routes';
+import Footer from './components/footer/footer';
 
 class App extends React.Component {
 
@@ -12,13 +11,10 @@ class App extends React.Component {
         return(
             <div>
                 <div id="app-container">
-                    <Router>
+                    <BrowserRouter>
                         <Navigation></Navigation>
-                        <Switch>
-                            <Route exact path="/leaderboard" component={Leaderboard} />
-                            <Route component={Home}/>
-                        </Switch>
-                    </Router>
+                        <Routes></Routes>
+                    </BrowserRouter>
                 </div>
                 <Footer></Footer>
             </div>
