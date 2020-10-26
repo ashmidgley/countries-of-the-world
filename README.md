@@ -207,9 +207,6 @@ YE | Yemen | yemen
 ZM | Zambia | zambia
 ZW | Zimbabwe | zimbabwe
 
-## Contributing
-Interested in contributing to this project? Check out the [guide](https://github.com/ashmidgley/countries-of-the-world/blob/master/CONTRIBUTING.md).
-
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
