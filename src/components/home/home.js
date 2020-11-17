@@ -37,7 +37,7 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`${process.env.REACT_APP_API_URL}/countries`)
+        fetch(`${process.env.REACT_APP_API_URL}/world/countries`)
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -45,7 +45,7 @@ class Home extends React.Component {
                 });
             });
 
-        fetch(`${process.env.REACT_APP_API_URL}/countries/alternatives`)
+        fetch(`${process.env.REACT_APP_API_URL}/world/countries/alternatives`)
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -53,7 +53,7 @@ class Home extends React.Component {
                 });
             });
         
-        fetch(`${process.env.REACT_APP_API_URL}/countries/prefixes`)
+        fetch(`${process.env.REACT_APP_API_URL}/world/countries/prefixes`)
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -61,7 +61,7 @@ class Home extends React.Component {
                 });
             });
         
-        fetch(`${process.env.REACT_APP_API_URL}/countries/map`)
+        fetch(`${process.env.REACT_APP_API_URL}/world/countries/map`)
             .then(response => response.json())
             .then(data => {
                 var values = Array.from(Object.values(data));

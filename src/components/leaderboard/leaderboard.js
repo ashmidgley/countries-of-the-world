@@ -23,7 +23,7 @@ class Leaderboard extends React.Component {
     }
 
     getEntries = (page) => {
-        fetch(`${process.env.REACT_APP_API_URL}/leaderboard?page=${page}`)
+        fetch(`${process.env.REACT_APP_API_URL}/world/leaderboard?page=${page}`)
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -35,7 +35,7 @@ class Leaderboard extends React.Component {
     }
 
     getCodes = () => {
-        fetch(`${process.env.REACT_APP_API_URL}/codes`)
+        fetch(`${process.env.REACT_APP_API_URL}/isocodes`)
             .then(response => response.json())
             .then(data => {
                 this.setState({
