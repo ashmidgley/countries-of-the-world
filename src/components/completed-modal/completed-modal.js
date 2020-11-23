@@ -31,7 +31,7 @@ class CompletedModal extends React.Component {
             time: this.props.stopWatch
         };
 
-        fetch(`${process.env.REACT_APP_API_URL}/world/leaderboard`, {
+        fetch(`${process.env.REACT_APP_API_URL}/leaderboard`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
